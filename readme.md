@@ -1,38 +1,34 @@
 # Learning golang
 
-## Algoritmos
+## Algorithms
 
-- Busca binária
+- Binary Search
 - Quicksort
 
-## Estrutura de dados
+## Data structures
 
-- Criar uma lista ligada simples
-  - Como ficaria o struct?
-  - Função para inserir um elemento.
-  - Função para buscar um elemento.
-  - Função para remover um element.
-  - Testes unitários.
-- Criar uma árvore binária.
-  - Testes unitários.
-- Criar uma árvore B
-  - Testes unitários.
-- Criar uma árvore B+
-  - Testes unitários.
+- Doubly linked list
+  - Insert
+  - Search
+  - Remove
+- Trees
+  - Functions
+    - Insert
+    - Search
+    - Remove
+  - Types
+    - Binary
+      - Simple
+      - AVL
+    - B Tree
+    - B+ Tree
 
-## Programas
+## Programs
 
-- Criar uma cópia do cat
-  - Testes unitários.
-- Criar uma cópia do tac
-  - Testes unitários.
-- Aplicação de TODO CLI
-  - Início: Escrevendo apenas em memória.
-    - Testes unitários.
-  - Intermediário: Escrevendo em arquivo.
-    - Testes unitários.
-  - Avançado: Escrevendo em algum banco.
-    - Testes unitários e componente com godog.
-- Aplicação de TODO API REST.
-  - Usando um banco relacional.
-    - Teste unitários e componente com godog.
+- cat copy
+- tac copy
+- TODO app
+  - V1: CLI - In memory data store
+  - V2: CLI - Persisting data in a file
+  - V3: CLI - Persisting in a database
+  - V4: API REST
