@@ -70,3 +70,11 @@ func internalSearch(node *Node, value int) bool {
 		return internalSearch(node.left, value)
 	}
 }
+
+func (tree *BinaryTree) Remove(value int) {
+	if tree.root != nil {
+		if tree.root.value == value {
+			tree.root = nil
+		}
+	}
+}

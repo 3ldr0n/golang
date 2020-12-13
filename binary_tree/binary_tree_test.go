@@ -191,6 +191,33 @@ func Test_search_element_in_tree_with_five_elements_balanced_should_return_false
 	assert.False(t, found)
 }
 
+func Test_remove_from_tree_without_elements_tree_should_stay_empty(t *testing.T) {
+	tree := BinaryTree{nil}
+
+	tree.Remove(0)
+
+	assert.Nil(t, tree.root)
+}
+
+func Test_remove_from_tree_with_one_element_tree_should_stay_empty(t *testing.T) {
+	tree := BinaryTree{nil}
+	tree.Insert(1)
+
+	tree.Remove(1)
+
+	assert.Nil(t, tree.root)
+}
+
+func Test_remove_unexisting_element_from_tree_with_one_element_tree_should_have_same_root(t *testing.T) {
+	rootValue := 1
+	tree := BinaryTree{nil}
+	tree.Insert(rootValue)
+
+	tree.Remove(0)
+
+	assert.Equal(t, rootValue, tree.root.value)
+}
+
 func validate(t *testing.T, node *Node, elements []int, counter *int) {
 	if node != nil {
 		validate(t, node.left, elements, counter)
