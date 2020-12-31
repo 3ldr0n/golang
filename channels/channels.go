@@ -1,4 +1,4 @@
-package main
+package channels
 
 import (
 	"fmt"
@@ -22,7 +22,7 @@ func readFiles(queue chan string) {
 	}
 }
 
-func main() {
+func RunChannels() {
 	writeFiles()
 
 	files := make(chan string)
@@ -36,6 +36,7 @@ func main() {
 		case file := <-files:
 			fmt.Println(file)
 		default:
+			os.Exit(0)
 		}
 	}
 }

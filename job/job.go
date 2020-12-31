@@ -1,4 +1,4 @@
-package main
+package job
 
 import (
 	"fmt"
@@ -20,11 +20,14 @@ func (job SimpleJob) ID() string {
 }
 
 func (job SimpleJob) Run() {
-	fmt.Printf("I am %s, and i'm running.\n", job.Name)
+	fmt.Printf("I am %s, and i'm running.\nI Should be %s\n",
+		job.Name, job.Description)
 }
 
-func main() {
+func RunJobs() {
+	// Channnel with all jobs
 	jobs := make(chan Job)
+	// Channel to identify when all jobs run
 	done := make(chan bool)
 
 	go func() {
@@ -41,11 +44,12 @@ func main() {
 	}()
 
 	for i := 0; i <= 3; i++ {
-		jobs <- SimpleJob{
+		job := SimpleJob{
 			Name:        strconv.Itoa(i),
 			Description: fmt.Sprintf("This is %d", i),
 		}
-		fmt.Println("Sent job", i)
+		jobs <- job
+		fmt.Println("Sent job", job.Name)
 	}
 	close(jobs)
 	fmt.Println("Sent all jobs")
